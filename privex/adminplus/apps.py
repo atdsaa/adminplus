@@ -7,7 +7,7 @@ from django.core.exceptions import ImproperlyConfigured
 from privex.helpers.common import empty, is_true, inject_items
 
 from privex.adminplus import VERSION
-from django.contrib.admin.apps import AdminConfig
+from django.contrib.admin import apps
 from django.conf import settings
 import logging
 
@@ -233,7 +233,7 @@ class PrivexAdminPlusConfig(AppConfig):
         return super().ready()
         
 
-class PVXAdmin(AdminConfig):
+class PVXAdmin(apps.AdminConfig):
     default_site = 'privex.adminplus.admin.CustomAdmin'
     
     def ready(self):
